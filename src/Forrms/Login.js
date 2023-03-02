@@ -3,7 +3,7 @@ import data from "./mobileCode.json";
 
 export default function Login() {
     const [mobileCode, setMobileCode] = useState(data);
-    const [selectedValue, setSelectedValue] = useState('IN');
+    const [selectedValue, setSelectedValue] = useState('');
     const handleSelectChange = (event) => {
         console.log(event.target.value);
         setSelectedValue(event.target.value);
@@ -21,7 +21,7 @@ export default function Login() {
             <div className="true">{selectedValue}</div>
             <select onChange={handleSelectChange}>
             {mobileCode.map(item => (
-                <option value={item.code}>
+                <option value={item.name + item.dial_code}>
                     <p>{item.name} {item.dial_code}</p>
                 </option>
             ))}
